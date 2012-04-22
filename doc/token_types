@@ -1,0 +1,23 @@
+-----------------------
+----- Primitivos ------
+-----------------------
+Ident   = 1
+inteiro = 2
+real    = 3
+simbolo = 4
+string  = 5
+------------------
+----- Ident ------
+------------------
+variavel           =  1
+funcao_primitiva   = 11
+palavra_reservada  = 12
+--------------------
+----- simbolo ------
+--------------------
+abrir (       = 40
+fecha )       = 41
+finalizador ; = 42
+separador   , = 43
+bloco {       = 44
+bloco }       = 45
