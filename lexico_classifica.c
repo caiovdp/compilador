@@ -1,6 +1,6 @@
 #include "cabecalho.h"
 
-void classificaSimbolo (token * conteudo){
+void lexico_classificaSimbolo (token * conteudo){
 	switch(conteudo->conteudo[0]){
 		case '(':
 			conteudo->idtype=40;
@@ -23,7 +23,7 @@ void classificaSimbolo (token * conteudo){
 	}
 }
 
-void classificaIdent (token * conteudo){
+void lexico_classificaIdent (token * conteudo){
 	char funcao_primitiva[2][6] =   { "printf", "scanf"};
 	char palavra_reservada[13][10] = { "while", "if", "else", "for", "main", "return", "void", "int", "double", "float", "switch", "case", "break"};
 	int aux = 0,fim = 1;
@@ -47,7 +47,7 @@ void classificaIdent (token * conteudo){
 	}
 }
 
-void classificaToken (Lista * L){
+void lexico_classificaToken (Lista * L){
 	Lista * cabeca;
 	cabeca = L;
 	int aux;
@@ -56,17 +56,17 @@ void classificaToken (Lista * L){
 
 		aux = L->conteudo->idtype;
 		if(aux == 1){//ident
-			classificaIdent(L->conteudo);
+			lexico_classificaIdent(L->conteudo);
 		}else{
 			if(aux == 4){
-				classificaSimbolo(L->conteudo);
+				lexico_classificaSimbolo(L->conteudo);
 			}
 		}
 
 		if(L->conteudo->idtype == 1){
 			TS = pushTablelaSimbolos(TS,L->conteudo->conteudo);
 		}
-		printf("%s,%d\n", L->conteudo->conteudo,L->conteudo->idtype);
+		//printf("%s,%d\n", L->conteudo->conteudo,L->conteudo->idtype);
 		L= L->prox;
 	}
 }
